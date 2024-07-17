@@ -18,14 +18,14 @@ def aws():
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[2]/div[2]/div/div[1]/div/div/div/main/div/div[2]/div/div/div/div/div[4]/div[2]/div/div[65]/div/div/div[1]/div/div[2]/div/div/div[2]/div/div[1]/div/div/div/a"))).click()
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[2]/div[2]/div/div[1]/div/div/div/div/div/div/nav[2]/div[2]/div/div/ul[1]/li[4]/div/div[2]/ul/li[1]/a"))).click()
 
-def gpt3():
+def gpt3(new_string):
     client = OpenAI(api_key="your api key")
 
     completion = client.chat.completions.create(
     model="gpt-3.5-turbo",
     messages=[
         {"role": "system", "content": "You are a poetic assistant, skilled in explaining complex programming concepts with creative flair."},
-        {"role": "user", "content": "Compose a poem that explains the concept of recursion in programming."}
+        {"role": "user", "content": new_string}
     ]
     )
 
